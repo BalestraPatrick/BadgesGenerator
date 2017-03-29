@@ -13,7 +13,7 @@ Feel free to use the code for your own conference bagdes generation. Modify the 
 If you want to add or remove fields from the badge, modify the struct `Attendee`. To modify the design of the badge, check out the `Rendering` class.
 You can also import a custom font to use in your drawing context.
 
-Let me know if you used this project for your own event, I'd love to know!
+Let me know if you used this project for your own event, I'd love to hear from you!
 
 ## Author
 
