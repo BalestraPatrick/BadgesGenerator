@@ -10,7 +10,7 @@ public func render(_ attendee: Attendee) -> Data {
 
         do {
             let fontSize = CGFloat(185)
-            let attributes = [NSFontAttributeName: UIFont(name: calibriBold, size: fontSize)!, NSParagraphStyleAttributeName: paragraphStyle, NSForegroundColorAttributeName: #colorLiteral(red: 0.2470588235, green: 0.2470588235, blue: 0.2470588235, alpha: 1)]
+            let attributes = [NSAttributedStringKey.font: UIFont(name: calibriBold, size: fontSize)!, NSAttributedStringKey.paragraphStyle: paragraphStyle, NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.2470588235, green: 0.2470588235, blue: 0.2470588235, alpha: 1)]
             let string = "\(attendee.firstName)\n\(attendee.lastName)"
             let attributedString = NSAttributedString(string: string, attributes: attributes)
             let height = attributedString.boundingRect(with: CGSize(width: rect.width, height: 750), options: [.usesLineFragmentOrigin], context: nil).height
@@ -27,21 +27,21 @@ public func render(_ attendee: Attendee) -> Data {
         }
 
         do {
-            let attributes = [NSFontAttributeName: UIFont(name: calibri, size: 125)!, NSParagraphStyleAttributeName: paragraphStyle, NSForegroundColorAttributeName: #colorLiteral(red: 0.1843137255, green: 0.1843137255, blue: 0.1843137255, alpha: 0.7)]
+            let attributes = [NSAttributedStringKey.font: UIFont(name: calibri, size: 125)!, NSAttributedStringKey.paragraphStyle: paragraphStyle, NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.1843137255, green: 0.1843137255, blue: 0.1843137255, alpha: 0.7)]
             let string = attendee.company
             let attributedString = NSAttributedString(string: string, attributes: attributes)
             attributedString.draw(with: CGRect(x: 0, y: 1325, width: rect.width, height: rect.height), options: .usesLineFragmentOrigin, context: nil)
         }
 
         do {
-            let attributes = [NSFontAttributeName: UIFont(name: calibri, size: 150)!, NSParagraphStyleAttributeName: paragraphStyle, NSForegroundColorAttributeName: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)]
+            let attributes = [NSAttributedStringKey.font: UIFont(name: calibri, size: 150)!, NSAttributedStringKey.paragraphStyle: paragraphStyle, NSAttributedStringKey.foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)]
             let string = flag(country: attendee.country)
             let attributedString = NSAttributedString(string: string, attributes: attributes)
             attributedString.draw(with: CGRect(x: 0, y: 1500, width: rect.width, height: rect.height), options: .usesLineFragmentOrigin, context: nil)
         }
 
         do {
-            let attributes = [NSFontAttributeName: UIFont(name: calibri, size: 125)!, NSParagraphStyleAttributeName: paragraphStyle, NSForegroundColorAttributeName: #colorLiteral(red: 0.1843137255, green: 0.1843137255, blue: 0.1843137255, alpha: 0.7)]
+            let attributes = [NSAttributedStringKey.font: UIFont(name: calibri, size: 125)!, NSAttributedStringKey.paragraphStyle: paragraphStyle, NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.1843137255, green: 0.1843137255, blue: 0.1843137255, alpha: 0.7)]
             let string = attendee.twitter
             let attributedString = NSAttributedString(string: string, attributes: attributes)
             attributedString.draw(with: CGRect(x: 0, y: 1750, width: rect.width, height: rect.height), options: .usesLineFragmentOrigin, context: nil)
