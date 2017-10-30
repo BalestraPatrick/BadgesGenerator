@@ -13,7 +13,7 @@ public let paragraphStyle: NSParagraphStyle = {
 
 public let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
 
-let directoryName = "AppBuildersBadges"
+let directoryName = "SwiftAlpsBadges"
 let directory = documentsDirectory.appendingPathComponent(directoryName)
 
 public func write(_ data: Data, name: String) {
