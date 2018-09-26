@@ -30,7 +30,7 @@ public func render(_ attendee: Attendee) -> Data {
         var yPositionCompany = CGFloat(155)
         do {
             let optimalFont = CGFloat(20.0)
-            let attributes = [NSAttributedStringKey.font: UIFont(name: calibri, size: optimalFont)!, NSAttributedStringKey.paragraphStyle: paragraphStyle, NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.1843137255, green: 0.1843137255, blue: 0.1843137255, alpha: 0.7)]
+            let attributes = [NSAttributedString.Key.font: UIFont(name: calibri, size: optimalFont)!, NSAttributedString.Key.paragraphStyle: paragraphStyle, NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.1843137255, green: 0.1843137255, blue: 0.1843137255, alpha: 0.7)]
             let string = attendee.company
             let attributedString = NSMutableAttributedString(string: string, attributes: attributes)
             let height = attributedString.boundingRect(with: CGSize(width: rect.width, height: 750), options: [.usesLineFragmentOrigin], context: nil).height
@@ -38,7 +38,7 @@ public func render(_ attendee: Attendee) -> Data {
             if lines >= 2 {
                 // Check if we can fit everything into one line by decreasing font size
                 let newFont = CGFloat(15.0)
-                attributedString.setAttributes([NSAttributedStringKey.font: UIFont(name: calibri, size: newFont)!, NSAttributedStringKey.paragraphStyle: paragraphStyle, NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.1843137255, green: 0.1843137255, blue: 0.1843137255, alpha: 0.7)], range: NSMakeRange(0, string.count))
+                attributedString.setAttributes([NSAttributedString.Key.font: UIFont(name: calibri, size: newFont)!, NSAttributedString.Key.paragraphStyle: paragraphStyle, NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.1843137255, green: 0.1843137255, blue: 0.1843137255, alpha: 0.7)], range: NSMakeRange(0, string.count))
                 let newHeight = attributedString.boundingRect(with: CGSize(width: rect.width, height: 750), options: [.usesLineFragmentOrigin], context: nil).height
                 let newLines = Int(newHeight / newFont)
                 if newLines == 2 {
@@ -50,7 +50,7 @@ public func render(_ attendee: Attendee) -> Data {
 
         do {
             let fontSize = CGFloat(24)
-            let attributes = [NSAttributedStringKey.font: UIFont(name: calibriBold, size: fontSize)!, NSAttributedStringKey.paragraphStyle: paragraphStyle, NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.2470588235, green: 0.2470588235, blue: 0.2470588235, alpha: 1)]
+            let attributes = [NSAttributedString.Key.font: UIFont(name: calibriBold, size: fontSize)!, NSAttributedString.Key.paragraphStyle: paragraphStyle, NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.2470588235, green: 0.2470588235, blue: 0.2470588235, alpha: 1)]
             let string = "\(attendee.firstName)\n\(attendee.lastName)"
             let attributedString = NSMutableAttributedString(string: string, attributes: attributes)
             let height = attributedString.boundingRect(with: CGSize(width: rect.width, height: 750), options: [.usesLineFragmentOrigin], context: nil).height
@@ -62,20 +62,20 @@ public func render(_ attendee: Attendee) -> Data {
             if lines >= 2 {
                 // Check if we can fit everything into one line by decreasing font size
                 let newFont = CGFloat(20.0)
-                attributedString.setAttributes([NSAttributedStringKey.font: UIFont(name: calibriBold, size: newFont)!, NSAttributedStringKey.paragraphStyle: paragraphStyle, NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.2470588235, green: 0.2470588235, blue: 0.2470588235, alpha: 1)], range: NSMakeRange(0, string.count))
+                attributedString.setAttributes([NSAttributedString.Key.font: UIFont(name: calibriBold, size: newFont)!, NSAttributedString.Key.paragraphStyle: paragraphStyle, NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.2470588235, green: 0.2470588235, blue: 0.2470588235, alpha: 1)], range: NSMakeRange(0, string.count))
             }
             attributedString.draw(with: CGRect(x: 0, y: yPosition, width: rect.width, height: rect.height), options: .usesLineFragmentOrigin, context: nil)
         }
 
         do {
-            let attributes = [NSAttributedStringKey.font: UIFont(name: calibri, size: 25)!, NSAttributedStringKey.paragraphStyle: paragraphStyle, NSAttributedStringKey.foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)]
+            let attributes = [NSAttributedString.Key.font: UIFont(name: calibri, size: 25)!, NSAttributedString.Key.paragraphStyle: paragraphStyle, NSAttributedString.Key.foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)]
             let string = flag(country: attendee.country)
             let attributedString = NSAttributedString(string: string, attributes: attributes)
             attributedString.draw(with: CGRect(x: 0, y: 180, width: rect.width, height: rect.height), options: .usesLineFragmentOrigin, context: nil)
         }
 
         do {
-            let attributes = [NSAttributedStringKey.font: UIFont(name: calibri, size: 18)!, NSAttributedStringKey.paragraphStyle: paragraphStyle, NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.1843137255, green: 0.1843137255, blue: 0.1843137255, alpha: 0.7)]
+            let attributes = [NSAttributedString.Key.font: UIFont(name: calibri, size: 18)!, NSAttributedString.Key.paragraphStyle: paragraphStyle, NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.1843137255, green: 0.1843137255, blue: 0.1843137255, alpha: 0.7)]
             if attendee.twitter.isEmpty == false && attendee.twitter != "-" {
                 let string = attendee.twitter.hasPrefix("@") ? attendee.twitter : "@\(attendee.twitter)"
                 let attributedString = NSAttributedString(string: string, attributes: attributes)
