@@ -11,7 +11,7 @@ public func render(_ attendee: Attendee) -> Data {
 
         do {
             let fontSize = CGFloat(175)
-            let attributes = [NSAttributedStringKey.font: UIFont(name: calibriBold, size: fontSize)!, NSAttributedStringKey.paragraphStyle: paragraphStyle, NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.9844431281, green: 0.9844661355, blue: 0.9844536185, alpha: 1)]
+            let attributes = [NSAttributedString.Key.font: UIFont(name: calibriBold, size: fontSize)!, NSAttributedString.Key.paragraphStyle: paragraphStyle, NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.9844431281, green: 0.9844661355, blue: 0.9844536185, alpha: 1)]
             let string = "\(attendee.firstName)\n\(attendee.lastName)"
             let attributedString = NSAttributedString(string: string, attributes: attributes)
             let height = attributedString.boundingRect(with: CGSize(width: rect.width, height: 750), options: [.usesLineFragmentOrigin], context: nil).height
@@ -28,14 +28,14 @@ public func render(_ attendee: Attendee) -> Data {
         }
 
         do {
-            let attributes = [NSAttributedStringKey.font: UIFont(name: calibri, size: 200)!, NSAttributedStringKey.paragraphStyle: paragraphStyle, NSAttributedStringKey.foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)]
+            let attributes = [NSAttributedString.Key.font: UIFont(name: calibri, size: 200)!, NSAttributedString.Key.paragraphStyle: paragraphStyle, NSAttributedString.Key.foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)]
             let string = flag(country: attendee.country)
             let attributedString = NSAttributedString(string: string, attributes: attributes)
             attributedString.draw(with: CGRect(x: 0, y: 860, width: rect.width, height: rect.height), options: .usesLineFragmentOrigin, context: nil)
         }
 
         do {
-            let attributes = [NSAttributedStringKey.font: UIFont(name: calibri, size: 125)!, NSAttributedStringKey.paragraphStyle: paragraphStyle, NSAttributedStringKey.foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)]
+            let attributes = [NSAttributedString.Key.font: UIFont(name: calibri, size: 125)!, NSAttributedString.Key.paragraphStyle: paragraphStyle, NSAttributedString.Key.foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)]
             let string: String
             if !attendee.twitter.isEmpty {
                 string = attendee.twitter
@@ -46,7 +46,8 @@ public func render(_ attendee: Attendee) -> Data {
             attributedString.draw(with: CGRect(x: 0, y: 670, width: rect.width, height: rect.height), options: .usesLineFragmentOrigin, context: nil)
         }
     }
-    return UIImageJPEGRepresentation(image, 1)!
+
+    return image.jpegData(compressionQuality: 1.0)!
 }
 
 public func renderBack(_ attendee: Attendee) -> Data {
@@ -77,5 +78,5 @@ public func renderBack(_ attendee: Attendee) -> Data {
             }
         }
     }
-    return UIImageJPEGRepresentation(image, 1)!
+    return image.jpegData(compressionQuality: 1.0)!
 }
