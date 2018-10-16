@@ -3,9 +3,9 @@ import Foundation
 public struct Attendee {
     public let firstName: String
     public let lastName: String
-    public let company: String
+//    public let company: String
     public let twitter: String
-    public let country: String
+//    public let country: String
 }
 
 extension Attendee {
@@ -13,9 +13,9 @@ extension Attendee {
     public init(dictionary: [String: AnyObject]) {
         self.firstName = dictionary["first_name"] as! String
         self.lastName = dictionary["last_name"] as! String
-        self.company = dictionary["company"] as! String
+//        self.company = dictionary["company"] as! String
         self.twitter = dictionary["twitter"] as! String
-        self.country = dictionary["country"] as! String
+//        self.country = dictionary["country"] as! String
     }
 
     public static func all() -> [Attendee] {
